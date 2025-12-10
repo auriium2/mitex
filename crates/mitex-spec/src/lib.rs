@@ -19,6 +19,7 @@ use rkyv::{Archive, Deserialize as rDeser, Serialize as rSer};
 
 pub mod preludes;
 pub mod query;
+#[cfg(feature = "rkyv")]
 mod stream;
 pub use query::CommandSpecRepr as JsonCommandSpec;
 
@@ -86,6 +87,7 @@ impl CommandSpec {
 
     /// # Safety
     /// The data source must be trusted and valid.
+    #[cfg(feature = "rkyv-validation")]
     pub unsafe fn from_bytes_unchecked(bytes: &[u8]) -> Self {
         let s = stream::BytesModuleStream::from_slice(bytes);
 
