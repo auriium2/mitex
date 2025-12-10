@@ -1,3 +1,5 @@
+#![cfg(feature = "rkyv")]
+
 use super::{ArchivedCommandSpecRepr, CommandSpecRepr};
 use rkyv::de::deserializers::SharedDeserializeMap;
 use rkyv::{AlignedVec, Deserialize};
