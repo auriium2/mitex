@@ -141,7 +141,6 @@ fn generate() -> anyhow::Result<()> {
 
     let spec: mitex_spec::CommandSpec = json_spec.into();
 
-    #[cfg(feature = "rkyv")]
     std::fs::write(target_dir.join("spec/default.rkyv"), spec.to_bytes())
         .with_context(|| "failed to write compacted spec")?;
 
